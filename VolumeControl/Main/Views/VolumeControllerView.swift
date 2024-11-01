@@ -36,21 +36,21 @@ struct VolumeControllerView: View {
             Rectangle()
                 .fill(.gray)
                 .opacity(0.5)
-                .frame(width: volumeControlWidth, height: viewModel.volumeControlMaxHeight)
+                .frame(width: volumeControlWidth, height: viewModel.barMaximumValue)
             Rectangle()
                 .fill(color)
-                .frame(width: volumeControlWidth, height: viewModel.volumeControlHeightChange)
+                .frame(width: volumeControlWidth, height: viewModel.barValueChange)
             VStack(alignment: .leading) {
                 Spacer()
                 ForEach(0...8, id: \.self) { _ in
                     Rectangle()
                         .fill(.white)
-                        .frame(width: volumeControlWidth, height: viewModel.volumeControlMaxHeight * spacingBarFraction)
+                        .frame(width: volumeControlWidth, height: viewModel.barMaximumValue * spacingBarFraction)
                     Spacer()
                 }
             }
         }
-        .frame(width: volumeControlWidth, height: viewModel.volumeControlMaxHeight)
+        .frame(width: volumeControlWidth, height: viewModel.barMaximumValue)
         .gesture(
             DragGesture()
                 .onChanged {
@@ -62,7 +62,7 @@ struct VolumeControllerView: View {
         )
         .clipShape(
             Rectangle()
-                .size(CGSize(width: volumeControlWidth, height: viewModel.volumeControlMaxHeight))
+                .size(CGSize(width: volumeControlWidth, height: viewModel.barMaximumValue))
         )
         
         // MARK: - Volume Setting Display

@@ -13,10 +13,10 @@ final class VolumeControllerViewModelTests: XCTestCase {
     func testInitialViewModelSetup() {
         let viewModel = VolumeControllerViewModel()
         
-        XCTAssertEqual(viewModel.volumeControlMaxHeight, 300)
-        XCTAssertEqual(viewModel.hundredPercentVolume, 100)
-        XCTAssertEqual(viewModel.initialVolume, 0)
-        XCTAssertEqual(viewModel.volumeControlHeightChange, 0)
+        XCTAssertEqual(viewModel.barMaximumValue, 300)
+        XCTAssertEqual(viewModel.maximumVolume, 100)
+        XCTAssertEqual(viewModel.initialBarValue, 0)
+        XCTAssertEqual(viewModel.barValueChange, 0)
         XCTAssertEqual(viewModel.volume, 0)
     }
     
