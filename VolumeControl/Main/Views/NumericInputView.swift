@@ -1,5 +1,5 @@
 //
-//  NumericInputWithActionButtonView.swift
+//  NumericInputView.swift
 //  VolumeControl
 //
 //  Created by Petri van Niekerk on 02/11/2024.
@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct NumericInputWithActionButtonView: View {
+struct NumericInputView: View {
     
     // MARK: - Private Properties
 
-    @StateObject private var viewModel: NumericInputWithActionButtonViewModel
+    @StateObject private var viewModel: NumericInputViewModel
     @FocusState private var volumeFieldIsFocused: Bool
     
     // MARK: - Initialiser
     
-    init(viewModel: NumericInputWithActionButtonViewModel) {
+    init(viewModel: NumericInputViewModel) {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
@@ -51,8 +51,8 @@ struct NumericInputWithActionButtonView: View {
 // MARK: - Preview
 
 #Preview {
-    let viewModel = NumericInputWithActionButtonViewModel(placeHolderText: "Placeholder",
-                                                          buttonText: "Button",
-                                                          completion: { _ in })
-    return NumericInputWithActionButtonView(viewModel: viewModel)
+    let viewModel = NumericInputViewModel(placeHolderText: "Placeholder",
+                                          buttonText: "Button",
+                                          completion: { _ in })
+    return NumericInputView(viewModel: viewModel)
 }

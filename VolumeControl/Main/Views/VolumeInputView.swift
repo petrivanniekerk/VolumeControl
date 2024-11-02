@@ -41,18 +41,18 @@ struct VolumeInputView: View {
     
     // MARK: - Private Factory Methods
     
-    private func makeNumericVolumeInputView() -> NumericInputWithActionButtonView {
-        let inputVolumeViewModel = NumericInputWithActionButtonViewModel(placeHolderText: viewModel.setVolumePlaceHolderText,
-                                                                         buttonText: viewModel.setVolumeButtonText,
-                                                                         completion: viewModel.setVolumeHandler)
-        return NumericInputWithActionButtonView(viewModel: inputVolumeViewModel)
+    private func makeNumericVolumeInputView() -> NumericInputView {
+        let viewModel = NumericInputViewModel(placeHolderText: viewModel.setVolumePlaceHolderText,
+                                              buttonText: viewModel.setVolumeButtonText,
+                                              completion: viewModel.setVolumeHandler)
+        return NumericInputView(viewModel: viewModel)
     }
     
-    private func makeNumericLineInputView() -> NumericInputWithActionButtonView {
-        let inputLineViewModel = NumericInputWithActionButtonViewModel(placeHolderText: viewModel.setLinePlaceHolderText,
-                                                                       buttonText: viewModel.setLineButtonText,
-                                                                       completion: viewModel.setLineHandler)
-        return NumericInputWithActionButtonView(viewModel: inputLineViewModel)
+    private func makeNumericLineInputView() -> NumericInputView {
+        let viewModel = NumericInputViewModel(placeHolderText: viewModel.setLinePlaceHolderText,
+                                              buttonText: viewModel.setLineButtonText,
+                                              completion: viewModel.setLineHandler)
+        return NumericInputView(viewModel: viewModel)
     }
 }
 

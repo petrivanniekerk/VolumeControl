@@ -1,5 +1,5 @@
 //
-//  NumericInputWithActionButtonViewModelTests.swift
+//  NumericInputViewModelTests.swift
 //  VolumeControlTests
 //
 //  Created by Petri van Niekerk on 02/11/2024.
@@ -8,13 +8,13 @@
 import XCTest
 @testable import VolumeControl
 
-final class NumericInputWithActionButtonViewModelTests: XCTestCase {
+final class NumericInputViewModelTests: XCTestCase {
     
     func testButtonPressWithValidEntry() {
         let expectation = XCTestExpectation(description: "Action button pressed")
         
-        let sut = NumericInputWithActionButtonViewModel(placeHolderText: "",
-                                                        buttonText: "") { value in
+        let sut = NumericInputViewModel(placeHolderText: "",
+                                        buttonText: "") { value in
             assert(value == 5)
             expectation.fulfill()
         }
@@ -29,8 +29,8 @@ final class NumericInputWithActionButtonViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Action button pressed")
         expectation.isInverted = true
         
-        let sut = NumericInputWithActionButtonViewModel(placeHolderText: "",
-                                                        buttonText: "") { value in
+        let sut = NumericInputViewModel(placeHolderText: "",
+                                        buttonText: "") { value in
             assert(value == 2)
             expectation.fulfill()
         }
@@ -44,8 +44,8 @@ final class NumericInputWithActionButtonViewModelTests: XCTestCase {
     func testButtonPressWithNumericAndTextValuesFiltersToNumericValue() {
         let expectation = XCTestExpectation(description: "Action button pressed")
         
-        let sut = NumericInputWithActionButtonViewModel(placeHolderText: "",
-                                                        buttonText: "") { value in
+        let sut = NumericInputViewModel(placeHolderText: "",
+                                        buttonText: "") { value in
             assert(value == 52)
             expectation.fulfill()
         }

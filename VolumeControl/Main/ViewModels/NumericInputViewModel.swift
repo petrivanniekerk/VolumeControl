@@ -1,5 +1,5 @@
 //
-//  NumericInputWithActionButtonViewModel.swift
+//  NumericInputViewModel.swift
 //  VolumeControl
 //
 //  Created by Petri van Niekerk on 02/11/2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class NumericInputWithActionButtonViewModel: ObservableObject {
+final class NumericInputViewModel: ObservableObject {
     
     // MARK: - Private Properties
     

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CBC057972CD6B27C0082A445 /* NumericInputWithActionButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC057962CD6B27C0082A445 /* NumericInputWithActionButtonViewModel.swift */; };
-		CBC057992CD6B2E00082A445 /* NumericInputWithActionButtonViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC057982CD6B2E00082A445 /* NumericInputWithActionButtonViewModelTests.swift */; };
+		CBC057972CD6B27C0082A445 /* NumericInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC057962CD6B27C0082A445 /* NumericInputViewModel.swift */; };
+		CBC057992CD6B2E00082A445 /* NumericInputViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC057982CD6B2E00082A445 /* NumericInputViewModelTests.swift */; };
 		CBC0579B2CD6B5570082A445 /* VolumeInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC0579A2CD6B5570082A445 /* VolumeInputViewModel.swift */; };
 		CBC0579D2CD6BA9D0082A445 /* VolumeInputViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC0579C2CD6BA9D0082A445 /* VolumeInputViewModelTests.swift */; };
 		CBC58C062CD3F8DD00271D34 /* VolumeControlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C052CD3F8DD00271D34 /* VolumeControlApp.swift */; };
@@ -20,7 +20,7 @@
 		CBC58C232CD3F8E000271D34 /* VolumeControlUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C222CD3F8E000271D34 /* VolumeControlUITestsLaunchTests.swift */; };
 		CBC58C322CD5261200271D34 /* VolumeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C312CD5261200271D34 /* VolumeControllerViewModel.swift */; };
 		CBC58C362CD5684C00271D34 /* VolumeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C352CD5684C00271D34 /* VolumeInputView.swift */; };
-		CBC860FB2CD5AE26000588FE /* NumericInputWithActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC860FA2CD5AE26000588FE /* NumericInputWithActionButtonView.swift */; };
+		CBC860FB2CD5AE26000588FE /* NumericInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC860FA2CD5AE26000588FE /* NumericInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CBC057962CD6B27C0082A445 /* NumericInputWithActionButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputWithActionButtonViewModel.swift; sourceTree = "<group>"; };
-		CBC057982CD6B2E00082A445 /* NumericInputWithActionButtonViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputWithActionButtonViewModelTests.swift; sourceTree = "<group>"; };
+		CBC057962CD6B27C0082A445 /* NumericInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputViewModel.swift; sourceTree = "<group>"; };
+		CBC057982CD6B2E00082A445 /* NumericInputViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputViewModelTests.swift; sourceTree = "<group>"; };
 		CBC0579A2CD6B5570082A445 /* VolumeInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInputViewModel.swift; sourceTree = "<group>"; };
 		CBC0579C2CD6BA9D0082A445 /* VolumeInputViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInputViewModelTests.swift; sourceTree = "<group>"; };
 		CBC58C022CD3F8DD00271D34 /* VolumeControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VolumeControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,7 +57,7 @@
 		CBC58C222CD3F8E000271D34 /* VolumeControlUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControlUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CBC58C312CD5261200271D34 /* VolumeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControllerViewModel.swift; sourceTree = "<group>"; };
 		CBC58C352CD5684C00271D34 /* VolumeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInputView.swift; sourceTree = "<group>"; };
-		CBC860FA2CD5AE26000588FE /* NumericInputWithActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputWithActionButtonView.swift; sourceTree = "<group>"; };
+		CBC860FA2CD5AE26000588FE /* NumericInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 		CBC58C152CD3F8E000271D34 /* VolumeControlTests */ = {
 			isa = PBXGroup;
 			children = (
-				CBC057982CD6B2E00082A445 /* NumericInputWithActionButtonViewModelTests.swift */,
+				CBC057982CD6B2E00082A445 /* NumericInputViewModelTests.swift */,
 				CBC58C162CD3F8E000271D34 /* VolumeControllerViewModelTests.swift */,
 				CBC0579C2CD6BA9D0082A445 /* VolumeInputViewModelTests.swift */,
 			);
@@ -156,7 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				CBC58C312CD5261200271D34 /* VolumeControllerViewModel.swift */,
-				CBC057962CD6B27C0082A445 /* NumericInputWithActionButtonViewModel.swift */,
+				CBC057962CD6B27C0082A445 /* NumericInputViewModel.swift */,
 				CBC0579A2CD6B5570082A445 /* VolumeInputViewModel.swift */,
 			);
 			path = ViewModels;
@@ -167,7 +167,7 @@
 			children = (
 				CBC58C072CD3F8DD00271D34 /* VolumeControllerView.swift */,
 				CBC58C352CD5684C00271D34 /* VolumeInputView.swift */,
-				CBC860FA2CD5AE26000588FE /* NumericInputWithActionButtonView.swift */,
+				CBC860FA2CD5AE26000588FE /* NumericInputView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,8 +306,8 @@
 				CBC58C082CD3F8DD00271D34 /* VolumeControllerView.swift in Sources */,
 				CBC58C322CD5261200271D34 /* VolumeControllerViewModel.swift in Sources */,
 				CBC58C062CD3F8DD00271D34 /* VolumeControlApp.swift in Sources */,
-				CBC057972CD6B27C0082A445 /* NumericInputWithActionButtonViewModel.swift in Sources */,
-				CBC860FB2CD5AE26000588FE /* NumericInputWithActionButtonView.swift in Sources */,
+				CBC057972CD6B27C0082A445 /* NumericInputViewModel.swift in Sources */,
+				CBC860FB2CD5AE26000588FE /* NumericInputView.swift in Sources */,
 				CBC58C362CD5684C00271D34 /* VolumeInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +318,7 @@
 			files = (
 				CBC58C172CD3F8E000271D34 /* VolumeControllerViewModelTests.swift in Sources */,
 				CBC0579D2CD6BA9D0082A445 /* VolumeInputViewModelTests.swift in Sources */,
-				CBC057992CD6B2E00082A445 /* NumericInputWithActionButtonViewModelTests.swift in Sources */,
+				CBC057992CD6B2E00082A445 /* NumericInputViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
