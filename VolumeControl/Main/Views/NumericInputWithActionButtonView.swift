@@ -40,6 +40,11 @@ struct NumericInputWithActionButtonView: View {
             }
         }
         .textFieldStyle(.roundedBorder)
+        .alert("Invalid input", isPresented: $viewModel.showError, actions: {
+            Button("OK", role: .cancel, action: {})
+        }, message: {
+            Text("Please enter numeric values only.")
+        })
     }
 }
 

@@ -71,7 +71,7 @@ struct VolumeControllerView: View {
     
     private func makeVolumeInputView() -> VolumeInputView {
         let volumeInputViewModel = VolumeInputViewModel { value in
-            viewModel.setVolumeOnLineInput(value: value)
+            viewModel.setVolumeOnInput(value: value)
         } setLineHandler: { value in
             viewModel.setVolumeOnLineInput(value: value)
         }

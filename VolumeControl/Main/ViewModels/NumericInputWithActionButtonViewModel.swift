@@ -19,6 +19,7 @@ final class NumericInputWithActionButtonViewModel: ObservableObject {
     let buttonText: String
     
     @Published var input: String = ""
+    @Published var showError = false
     
     // MARK: - Initialiser
     
@@ -33,8 +34,7 @@ final class NumericInputWithActionButtonViewModel: ObservableObject {
     func buttonPress() {
         let filteredInput = input.filter { $0.isNumber }
         guard let number = Int(filteredInput) else {
-            // TODO: Handle conversion error
-            input = ""
+            showError = true
             return
         }
         completion(number)
