@@ -18,6 +18,7 @@ final class VolumeControllerViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.initialBarValue, 0)
         XCTAssertEqual(viewModel.barValueChange, 0)
         XCTAssertEqual(viewModel.volume, 0)
+        XCTAssertEqual(viewModel.lineSettingMaximumValue, 10)
     }
     
     func testSetVolumeWithTextInput() {
@@ -41,16 +42,43 @@ final class VolumeControllerViewModelTests: XCTestCase {
     func testSetVolumeWithTextInputDoesNotExceed_100() {
         let viewModel = VolumeControllerViewModel()
         
-        viewModel.setVolumeOnInput(text: "6795483950")
+        viewModel.setVolumeOnInput(text: "101")
          
         XCTAssertEqual(viewModel.volume, 100.0)
         XCTAssertEqual(viewModel.getVolume(), 100)
     }
     
+    func testSetVolumeOnLineInput() {
+        let viewModel = VolumeControllerViewModel()
+        
+        viewModel.setVolumeOnLineInput(text: "7")
+         
+        XCTAssertEqual(viewModel.volume, 70.0)
+        XCTAssertEqual(viewModel.getVolume(), 70)
+    }
+    
+    func testSetVolumeOnLineInputDoesNotExceed_100() {
+        let viewModel = VolumeControllerViewModel()
+        
+        viewModel.setVolumeOnLineInput(text: "11")
+         
+        XCTAssertEqual(viewModel.volume, 100.0)
+        XCTAssertEqual(viewModel.getVolume(), 100)
+    }
+    
+    func testSetVolumeOnLineInputNonNumeric() {
+        let viewModel = VolumeControllerViewModel()
+        
+        viewModel.setVolumeOnLineInput(text: "-t7g")
+         
+        XCTAssertEqual(viewModel.volume, 70.0)
+        XCTAssertEqual(viewModel.getVolume(), 70)
+    }
+    
     func testSetVolumeWithDragGesture() {
         let viewModel = VolumeControllerViewModel()
         let upDragValue = -200.0 // Simulate upwards drag gesture
-        let downDragValue = 100.0
+        let downDragValue = 100.0 // Simulate downwards drag gesture
         
         viewModel.setVolumeOnDrag(value: upDragValue)
         viewModel.dragDidEnd() // We need to call this simulate that the drag gesture ended
@@ -63,5 +91,16 @@ final class VolumeControllerViewModelTests: XCTestCase {
         
         XCTAssertEqual(viewModel.volume.rounded(.up), 34.0)
         XCTAssertEqual(viewModel.getVolume(), 34)
+    }
+    
+    func testSetVolumeWithDragGestureDoesNotExceed_100() {
+        let viewModel = VolumeControllerViewModel()
+        let upDragValue = -301.0 // Simulate upwards over drag gesture as max is 300
+        
+        viewModel.setVolumeOnDrag(value: upDragValue)
+        viewModel.dragDidEnd() // We need to call this simulate that the drag gesture ended
+        
+        XCTAssertEqual(viewModel.volume.rounded(.up), 100.0)
+        XCTAssertEqual(viewModel.getVolume(), 100)
     }
 }

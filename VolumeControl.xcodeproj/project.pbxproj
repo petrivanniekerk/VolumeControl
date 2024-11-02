@@ -16,6 +16,7 @@
 		CBC58C232CD3F8E000271D34 /* VolumeControlUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C222CD3F8E000271D34 /* VolumeControlUITestsLaunchTests.swift */; };
 		CBC58C322CD5261200271D34 /* VolumeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C312CD5261200271D34 /* VolumeControllerViewModel.swift */; };
 		CBC58C362CD5684C00271D34 /* VolumeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C352CD5684C00271D34 /* VolumeInputView.swift */; };
+		CBC860FB2CD5AE26000588FE /* TextInputWithActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC860FA2CD5AE26000588FE /* TextInputWithActionButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		CBC58C222CD3F8E000271D34 /* VolumeControlUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControlUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CBC58C312CD5261200271D34 /* VolumeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControllerViewModel.swift; sourceTree = "<group>"; };
 		CBC58C352CD5684C00271D34 /* VolumeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInputView.swift; sourceTree = "<group>"; };
+		CBC860FA2CD5AE26000588FE /* TextInputWithActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputWithActionButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			children = (
 				CBC58C072CD3F8DD00271D34 /* VolumeControllerView.swift */,
 				CBC58C352CD5684C00271D34 /* VolumeInputView.swift */,
+				CBC860FA2CD5AE26000588FE /* TextInputWithActionButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				CBC58C082CD3F8DD00271D34 /* VolumeControllerView.swift in Sources */,
 				CBC58C322CD5261200271D34 /* VolumeControllerViewModel.swift in Sources */,
 				CBC58C062CD3F8DD00271D34 /* VolumeControlApp.swift in Sources */,
+				CBC860FB2CD5AE26000588FE /* TextInputWithActionButtonView.swift in Sources */,
 				CBC58C362CD5684C00271D34 /* VolumeInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

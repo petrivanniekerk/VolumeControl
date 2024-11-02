@@ -11,40 +11,42 @@ struct VolumeInputView: View {
     
     // MARK: - Private Properties
     
-    private var buttonAction: (String) -> Void
+    private let setVolumeButtonText = "Set Volume"
+    private let setVolumePlaceHolderText = "Enter range 0 - 100"
+    
+    private let setLinesButtonText = "Set Lines"
+    private let setLinesPlaceHolderText = "Enter range 0 - 10"
+    
+    private let setVolumeHandler: (String) -> Void
+    private let setLinesHandler: (String) -> Void
     
     @FocusState private var volumeFieldIsFocused: Bool
     @State private var inputText: String = ""
+    @State private var inputText2: String = ""
     
     // MARK: - Initialiser
     
-    init(buttonAction: @escaping (String) -> Void) {
-        self.buttonAction = buttonAction
+    init(setVolumeHandler: @escaping (String) -> Void, setLinesHandler: @escaping (String) -> Void) {
+        self.setVolumeHandler = setVolumeHandler
+        self.setLinesHandler = setLinesHandler
     }
     
     // MARK: - View
     
     var body: some View {
         VStack {
-            HStack {
-                TextField("Enter range 0 - 100", text: $inputText)
-                    .keyboardType(.numberPad)
-                    .focused($volumeFieldIsFocused)
-                    .padding()
-                Button {
-                    volumeFieldIsFocused = false
-                    buttonAction(inputText)
-                    inputText = ""
-                } label: {
-                    Text("Set Volume")
-                        .padding(8)
-                        .foregroundColor(.black)
-                        .background(Color.gray.opacity(0.5), in: RoundedRectangle(cornerRadius: 8))
-                }
-            }
-            .textFieldStyle(.roundedBorder)
-            .padding()
+            TextInputWithActionButtonView(placeHolderText: setVolumePlaceHolderText,
+                                          buttonText: setVolumeButtonText,
+                                          inputText: inputText,
+                                          volumeFieldIsFocused: volumeFieldIsFocused,
+                                          buttonAction: setVolumeHandler)
+            TextInputWithActionButtonView(placeHolderText: setLinesPlaceHolderText,
+                                          buttonText: setLinesButtonText,
+                                          inputText: inputText2,
+                                          volumeFieldIsFocused: volumeFieldIsFocused,
+                                          buttonAction: setLinesHandler)
         }
+        .padding([.leading, .trailing])
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 Button {
@@ -60,5 +62,5 @@ struct VolumeInputView: View {
 // MARK: View Preview
 
 #Preview {
-    VolumeInputView(buttonAction: { _ in })
+    VolumeInputView(setVolumeHandler: { _ in }, setLinesHandler: { _ in })
 }

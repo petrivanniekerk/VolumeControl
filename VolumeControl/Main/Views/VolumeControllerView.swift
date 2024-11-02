@@ -29,6 +29,8 @@ struct VolumeControllerView: View {
         // MARK: - Volume Manual Input Control
         VolumeInputView { text in
             viewModel.setVolumeOnInput(text: text)
+        } setLinesHandler: { text in
+            viewModel.setVolumeOnLineInput(text: text)
         }
         
         // MARK: - Volume Drag Control
