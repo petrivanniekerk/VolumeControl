@@ -11,40 +11,21 @@ struct VolumeInputView: View {
     
     // MARK: - Private Properties
     
-    private let setVolumeButtonText = "Set Volume"
-    private let setVolumePlaceHolderText = "Enter range 0 - 100"
-    
-    private let setLinesButtonText = "Set Lines"
-    private let setLinesPlaceHolderText = "Enter range 0 - 10"
-    
-    private let setVolumeHandler: (String) -> Void
-    private let setLinesHandler: (String) -> Void
-    
     @FocusState private var volumeFieldIsFocused: Bool
-    @State private var inputText: String = ""
-    @State private var inputText2: String = ""
+    @StateObject private var viewModel: VolumeInputViewModel
     
     // MARK: - Initialiser
     
-    init(setVolumeHandler: @escaping (String) -> Void, setLinesHandler: @escaping (String) -> Void) {
-        self.setVolumeHandler = setVolumeHandler
-        self.setLinesHandler = setLinesHandler
+    init(viewModel: VolumeInputViewModel) {
+        self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     // MARK: - View
     
     var body: some View {
         VStack {
-            TextInputWithActionButtonView(placeHolderText: setVolumePlaceHolderText,
-                                          buttonText: setVolumeButtonText,
-                                          inputText: inputText,
-                                          volumeFieldIsFocused: volumeFieldIsFocused,
-                                          buttonAction: setVolumeHandler)
-            TextInputWithActionButtonView(placeHolderText: setLinesPlaceHolderText,
-                                          buttonText: setLinesButtonText,
-                                          inputText: inputText2,
-                                          volumeFieldIsFocused: volumeFieldIsFocused,
-                                          buttonAction: setLinesHandler)
+            self.makeNumericVolumeInputView()
+            self.makeNumericLineInputView()
         }
         .padding([.leading, .trailing])
         .toolbar {
@@ -57,10 +38,27 @@ struct VolumeInputView: View {
             }
         }
     }
+    
+    // MARK: - Private Factory Methods
+    
+    private func makeNumericVolumeInputView() -> NumericInputWithActionButtonView {
+        let inputVolumeViewModel = NumericInputWithActionButtonViewModel(placeHolderText: viewModel.setVolumePlaceHolderText,
+                                                                         buttonText: viewModel.setVolumeButtonText,
+                                                                         completion: viewModel.setVolumeHandler)
+        return NumericInputWithActionButtonView(viewModel: inputVolumeViewModel)
+    }
+    
+    private func makeNumericLineInputView() -> NumericInputWithActionButtonView {
+        let inputLineViewModel = NumericInputWithActionButtonViewModel(placeHolderText: viewModel.setLinePlaceHolderText,
+                                                                       buttonText: viewModel.setLineButtonText,
+                                                                       completion: viewModel.setLineHandler)
+        return NumericInputWithActionButtonView(viewModel: inputLineViewModel)
+    }
 }
 
 // MARK: View Preview
 
 #Preview {
-    VolumeInputView(setVolumeHandler: { _ in }, setLinesHandler: { _ in })
+    let viewModel = VolumeInputViewModel(setVolumeHandler: { _ in }, setLineHandler: { _ in })
+    return VolumeInputView(viewModel: viewModel)
 }

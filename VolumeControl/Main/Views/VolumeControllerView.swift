@@ -27,11 +27,7 @@ struct VolumeControllerView: View {
     
     var body: some View {
         // MARK: - Volume Manual Input Control
-        VolumeInputView { text in
-            viewModel.setVolumeOnInput(text: text)
-        } setLinesHandler: { text in
-            viewModel.setVolumeOnLineInput(text: text)
-        }
+        makeVolumeInputView()
         
         // MARK: - Volume Drag Control
         ZStack(alignment: .bottom) {
@@ -69,6 +65,18 @@ struct VolumeControllerView: View {
         
         // MARK: - Volume Setting Display
         Text("Volume set at : \(viewModel.getVolume()) %")
+    }
+    
+    // MARK: - Private Factory Methods
+    
+    private func makeVolumeInputView() -> VolumeInputView {
+        let volumeInputViewModel = VolumeInputViewModel { value in
+            viewModel.setVolumeOnLineInput(value: value)
+        } setLineHandler: { value in
+            viewModel.setVolumeOnLineInput(value: value)
+        }
+        
+        return VolumeInputView(viewModel: volumeInputViewModel)
     }
 }
 

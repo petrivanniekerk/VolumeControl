@@ -23,15 +23,15 @@ final class VolumeControllerViewModel: ObservableObject {
     
     // MARK: - Internal Methods
     
-    func setVolumeOnInput(text: String) {
-        self.manualInputHandling(text: text, maximumValue: maximumVolume) { volumeSetting in
+    func setVolumeOnInput(value: Int) {
+        self.manualInputHandling(inputValue: value, maximumValue: maximumVolume) { volumeSetting in
             barValueChange = barMaximumValue * (volumeSetting / maximumVolume)
             volume = volumeSetting
         }
     }
     
-    func setVolumeOnLineInput(text: String) {
-        self.manualInputHandling(text: text, maximumValue: lineSettingMaximumValue) { volumeSetting in
+    func setVolumeOnLineInput(value: Int) {
+        self.manualInputHandling(inputValue: value, maximumValue: lineSettingMaximumValue) { volumeSetting in
             let scaledUpVolumeSetting = volumeSetting * lineSettingMaximumValue
             barValueChange = barMaximumValue * (scaledUpVolumeSetting / maximumVolume)
             volume = scaledUpVolumeSetting
@@ -64,18 +64,15 @@ final class VolumeControllerViewModel: ObservableObject {
         volume = maximumVolume
     }
     
-    private func manualInputHandling(text: String, maximumValue: Double, handlingStrategy: (Double) -> Void) {
-        let filteredText = text.filter { $0.isNumber }
-        if let volumeSetting = Double(filteredText) {
-            if volumeSetting > maximumValue {
-                setToMaximum()
-            } else {
-                handlingStrategy(volumeSetting)
-            }
-            
-            initialBarValue = barValueChange
+    private func manualInputHandling(inputValue: Int, maximumValue: Double, handlingStrategy: (Double) -> Void) {
+        let volumeSetting = Double(inputValue)
+        
+        if volumeSetting > maximumValue {
+            setToMaximum()
         } else {
-            // TODO: Need to show error alert or something??? "Please check input value as it is either not numeric or you exceeded the maximum value of \(maximumValue)"
+            handlingStrategy(volumeSetting)
         }
+        
+        initialBarValue = barValueChange
     }
 }

@@ -21,28 +21,19 @@ final class VolumeControllerViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.lineSettingMaximumValue, 10)
     }
     
-    func testSetVolumeWithTextInput() {
+    func testSetVolume() {
         let viewModel = VolumeControllerViewModel()
         
-        viewModel.setVolumeOnInput(text: "85")
+        viewModel.setVolumeOnInput(value: 85)
          
         XCTAssertEqual(viewModel.volume, 85.0)
         XCTAssertEqual(viewModel.getVolume(), 85)
     }
     
-    func testSetVolumeWithTextInputNonNumeric() {
+    func testSetVolumeWhenInputExceedsMax() {
         let viewModel = VolumeControllerViewModel()
         
-        viewModel.setVolumeOnInput(text: "-t4g7")
-         
-        XCTAssertEqual(viewModel.volume, 47.0)
-        XCTAssertEqual(viewModel.getVolume(), 47)
-    }
-    
-    func testSetVolumeWithTextInputDoesNotExceed_100() {
-        let viewModel = VolumeControllerViewModel()
-        
-        viewModel.setVolumeOnInput(text: "101")
+        viewModel.setVolumeOnInput(value: 101)
          
         XCTAssertEqual(viewModel.volume, 100.0)
         XCTAssertEqual(viewModel.getVolume(), 100)
@@ -51,28 +42,19 @@ final class VolumeControllerViewModelTests: XCTestCase {
     func testSetVolumeOnLineInput() {
         let viewModel = VolumeControllerViewModel()
         
-        viewModel.setVolumeOnLineInput(text: "7")
+        viewModel.setVolumeOnLineInput(value: 7)
          
         XCTAssertEqual(viewModel.volume, 70.0)
         XCTAssertEqual(viewModel.getVolume(), 70)
     }
     
-    func testSetVolumeOnLineInputDoesNotExceed_100() {
+    func testSetVolumeOnLineInputWhenInputExceedsMax() {
         let viewModel = VolumeControllerViewModel()
         
-        viewModel.setVolumeOnLineInput(text: "11")
+        viewModel.setVolumeOnLineInput(value: 11)
          
         XCTAssertEqual(viewModel.volume, 100.0)
         XCTAssertEqual(viewModel.getVolume(), 100)
-    }
-    
-    func testSetVolumeOnLineInputNonNumeric() {
-        let viewModel = VolumeControllerViewModel()
-        
-        viewModel.setVolumeOnLineInput(text: "-t7g")
-         
-        XCTAssertEqual(viewModel.volume, 70.0)
-        XCTAssertEqual(viewModel.getVolume(), 70)
     }
     
     func testSetVolumeWithDragGesture() {
@@ -93,7 +75,7 @@ final class VolumeControllerViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.getVolume(), 34)
     }
     
-    func testSetVolumeWithDragGestureDoesNotExceed_100() {
+    func testSetVolumeWithDragGestureWhenInputExceedsMax() {
         let viewModel = VolumeControllerViewModel()
         let upDragValue = -301.0 // Simulate upwards over drag gesture as max is 300
         
