@@ -13,6 +13,7 @@ final class VolumeControllerViewModel: ObservableObject {
     
     let barMaximumValue: CGFloat = 300
     let maximumVolume: Double = 100
+    let minimumVolume: Double = 0
     let lineSettingMaximumValue: Double = 10
     
     // MARK: - Private Set Internal Properties
@@ -39,7 +40,7 @@ final class VolumeControllerViewModel: ObservableObject {
     }
     
     func setVolumeOnDrag(value: CGFloat) {
-        let volumeBarChange = max(0, initialBarValue - value)
+        let volumeBarChange = max(minimumVolume, initialBarValue - value)
         
         if volumeBarChange > barMaximumValue {
             setToMaximum()

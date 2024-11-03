@@ -71,10 +71,14 @@ struct VolumeControllerView: View {
     
     private func makeVolumeInputView() -> VolumeInputView {
         let maxVolume = Int(viewModel.maximumVolume)
+        let minVolume = Int(viewModel.minimumVolume)
         let maxLines = Int(viewModel.lineSettingMaximumValue)
+        let minLines = Int(viewModel.minimumVolume)
         
         let viewModel = VolumeInputViewModel(volumeMaxValue: maxVolume,
-                                             linesMaxValue:maxLines) { value in
+                                             volumeMinValue: minVolume, 
+                                             linesMaxValue: maxLines,
+                                             linesMinValue: minLines) { value in
             self.viewModel.setVolumeOnInput(value: value)
         } setLineHandler: { value in
             self.viewModel.setVolumeOnLineInput(value: value)

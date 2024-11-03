@@ -41,18 +41,26 @@ final class NumericInputViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 2)
     }
     
-    func testButtonPressWithNumericAndTextValuesFiltersToNumericValue() {
-        let expectation = XCTestExpectation(description: "Action button pressed")
+    func testButtonPressWithValueRangeDefined() {
+        let lowerLimitExceededExpectation = XCTestExpectation(description: "Action button pressed when value below lower limit")
+        let upperLimitExceededExpectation = XCTestExpectation(description: "Action button pressed when value above upper limit")
+        lowerLimitExceededExpectation.isInverted = true
+        upperLimitExceededExpectation.isInverted = true
         
         let sut = NumericInputViewModel(placeHolderText: "",
-                                        buttonText: "") { value in
-            assert(value == 52)
-            expectation.fulfill()
+                                        buttonText: "",
+                                        minimumValue: 0,
+                                        maximumValue: 10) { value in
+            lowerLimitExceededExpectation.fulfill()
+            upperLimitExceededExpectation.fulfill()
         }
         
-        sut.input = "in5vali2d"
+        sut.input = "-1"
         sut.buttonPress()
         
-        wait(for: [expectation], timeout: 2)
+        sut.input = "11"
+        sut.buttonPress()
+        
+        wait(for: [lowerLimitExceededExpectation, upperLimitExceededExpectation], timeout: 2)
     }
 }

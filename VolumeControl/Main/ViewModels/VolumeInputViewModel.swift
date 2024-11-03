@@ -20,20 +20,27 @@ final class VolumeInputViewModel: ObservableObject {
     let volumeErrorMessage = "Please enter value between 0 - 100"
     let linesErrorMessage = "Please enter value between 0 - 10"
     
-    let volumeMaxValue: Int
-    let linesMaxValue: Int
     let setVolumeHandler: (Int) -> Void
     let setLineHandler: (Int) -> Void
     
+    let volumeMaxValue: Int?
+    let volumeMinValue: Int?
+    let linesMaxValue: Int?
+    let linesMinValue: Int?
+    
     // MARK: - Initialiser
     
-    init(volumeMaxValue: Int,
-         linesMaxValue: Int,
+    init(volumeMaxValue: Int? = nil,
+         volumeMinValue: Int? = nil,
+         linesMaxValue: Int? = nil,
+         linesMinValue: Int? = nil,
          setVolumeHandler: @escaping (Int) -> Void,
          setLineHandler: @escaping (Int) -> Void) {
         self.setVolumeHandler = setVolumeHandler
         self.setLineHandler = setLineHandler
         self.volumeMaxValue = volumeMaxValue
         self.linesMaxValue = linesMaxValue
+        self.linesMinValue = linesMinValue
+        self.volumeMinValue = volumeMinValue
     }
 }

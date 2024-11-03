@@ -15,6 +15,7 @@ final class VolumeControllerViewModelTests: XCTestCase {
         
         XCTAssertEqual(viewModel.barMaximumValue, 300)
         XCTAssertEqual(viewModel.maximumVolume, 100)
+        XCTAssertEqual(viewModel.minimumVolume, 0)
         XCTAssertEqual(viewModel.initialBarValue, 0)
         XCTAssertEqual(viewModel.barValueChange, 0)
         XCTAssertEqual(viewModel.volume, 0)

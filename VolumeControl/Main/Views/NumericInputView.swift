@@ -54,6 +54,7 @@ struct NumericInputView: View {
 #Preview {
     let viewModel = NumericInputViewModel(placeHolderText: "Placeholder",
                                           buttonText: "Button", 
+                                          minimumValue: 0,
                                           maximumValue: 10,
                                           completion: { _ in })
     return NumericInputView(viewModel: viewModel)

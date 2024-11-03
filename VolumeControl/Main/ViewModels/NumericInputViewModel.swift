@@ -18,6 +18,7 @@ final class NumericInputViewModel: ObservableObject {
     let placeHolderText: String
     let buttonText: String
     let maximumValue: Int?
+    let minimumValue: Int?
     let customErrorMessage: String?
     
     @Published var input: String = ""
@@ -27,6 +28,7 @@ final class NumericInputViewModel: ObservableObject {
     
     init(placeHolderText: String,
          buttonText: String,
+         minimumValue: Int? = nil,
          maximumValue: Int? = nil,
          customErrorMessage: String? = nil,
          completion: @escaping (Int) -> Void) {
@@ -34,6 +36,7 @@ final class NumericInputViewModel: ObservableObject {
         self.placeHolderText = placeHolderText
         self.buttonText = buttonText
         self.maximumValue = maximumValue
+        self.minimumValue = minimumValue
         self.customErrorMessage = customErrorMessage
     }
     
@@ -42,8 +45,7 @@ final class NumericInputViewModel: ObservableObject {
     func buttonPress() {
         if input.isEmpty { return }
         
-        let filteredInput = input.filter { $0.isNumber }
-        guard let number = Int(filteredInput), !inputExceedsMax(number) else {
+        guard let number = Int(input), !inputExceedsMax(number), !inputExceedsMin(number) else {
             showError = true
             input = ""
             return
@@ -57,6 +59,14 @@ final class NumericInputViewModel: ObservableObject {
     private func inputExceedsMax(_ input: Int) -> Bool {
         if let maximumValue {
             return input > maximumValue
+        } else {
+            return false
+        }
+    }
+    
+    private func inputExceedsMin(_ input: Int) -> Bool {
+        if let minimumValue {
+            return input < minimumValue
         } else {
             return false
         }
