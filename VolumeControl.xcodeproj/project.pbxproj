@@ -21,6 +21,7 @@
 		CBC58C322CD5261200271D34 /* VolumeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C312CD5261200271D34 /* VolumeControllerViewModel.swift */; };
 		CBC58C362CD5684C00271D34 /* VolumeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC58C352CD5684C00271D34 /* VolumeInputView.swift */; };
 		CBC860FB2CD5AE26000588FE /* NumericInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC860FA2CD5AE26000588FE /* NumericInputView.swift */; };
+		CBF0DD852CD834A8000B0C87 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF0DD842CD834A8000B0C87 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		CBC58C312CD5261200271D34 /* VolumeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControllerViewModel.swift; sourceTree = "<group>"; };
 		CBC58C352CD5684C00271D34 /* VolumeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInputView.swift; sourceTree = "<group>"; };
 		CBC860FA2CD5AE26000588FE /* NumericInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericInputView.swift; sourceTree = "<group>"; };
+		CBF0DD842CD834A8000B0C87 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				CBC58C372CD5813600271D34 /* Main */,
 				CBC58C092CD3F8E000271D34 /* Assets.xcassets */,
 				CBC58C0B2CD3F8E000271D34 /* Preview Content */,
+				CBF0DD842CD834A8000B0C87 /* Launch Screen.storyboard */,
 			);
 			path = VolumeControl;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF0DD852CD834A8000B0C87 /* Launch Screen.storyboard in Resources */,
 				CBC58C0D2CD3F8E000271D34 /* Preview Assets.xcassets in Resources */,
 				CBC58C0A2CD3F8E000271D34 /* Assets.xcassets in Resources */,
 			);
@@ -480,6 +484,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,6 +513,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
