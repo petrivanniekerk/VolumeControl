@@ -27,7 +27,6 @@ struct NumericInputView: View {
             TextField(viewModel.placeHolderText, text: $viewModel.input)
                 .keyboardType(.numberPad)
                 .focused($textFieldIsFocused)
-                .padding()
                 .frame(width: 250)
             Button {
                 textFieldIsFocused = false

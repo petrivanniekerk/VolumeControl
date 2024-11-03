@@ -30,7 +30,6 @@ struct VolumeInputView: View {
             self.makeNumericLineInputView()
                 .focused($lineFieldIsFocused)
         }
-        .padding([.leading, .trailing])
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 Button {
