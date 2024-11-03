@@ -48,6 +48,7 @@ struct VolumeControllerView: View {
                 }
             }
         }
+        .padding(.top)
         .frame(width: volumeControlWidth, height: viewModel.barMaximumValue)
         .gesture(
             DragGesture()
@@ -65,6 +66,7 @@ struct VolumeControllerView: View {
         
         // MARK: - Volume Setting Display
         Text("Volume set at : \(viewModel.getVolume()) %")
+            .accessibilityIdentifier("VolumeController - volumeDisplay")
     }
     
     // MARK: - Private Factory Methods

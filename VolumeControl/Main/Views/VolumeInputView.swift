@@ -27,8 +27,10 @@ struct VolumeInputView: View {
         VStack {
             self.makeNumericVolumeInputView()
                 .focused($volumeFieldIsFocused)
+                .accessibilityIdentifier("VolumeInputView - volumeInput")
             self.makeNumericLineInputView()
                 .focused($lineFieldIsFocused)
+                .accessibilityIdentifier("VolumeInputView - lineInput")
         }
         .toolbar {
             ToolbarItem(placement: .keyboard) {
