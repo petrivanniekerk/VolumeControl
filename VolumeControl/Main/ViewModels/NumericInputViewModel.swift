@@ -32,6 +32,8 @@ final class NumericInputViewModel: ObservableObject {
     // MARK: - Internal Methods
     
     func buttonPress() {
+        if input.isEmpty { return }
+        
         let filteredInput = input.filter { $0.isNumber }
         guard let number = Int(filteredInput) else {
             showError = true

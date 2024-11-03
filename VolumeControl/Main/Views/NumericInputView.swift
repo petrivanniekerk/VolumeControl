@@ -12,7 +12,7 @@ struct NumericInputView: View {
     // MARK: - Private Properties
 
     @StateObject private var viewModel: NumericInputViewModel
-    @FocusState private var volumeFieldIsFocused: Bool
+    @FocusState private var textFieldIsFocused: Bool
     
     // MARK: - Initialiser
     
@@ -26,14 +26,15 @@ struct NumericInputView: View {
         HStack {
             TextField(viewModel.placeHolderText, text: $viewModel.input)
                 .keyboardType(.numberPad)
-                .focused($volumeFieldIsFocused)
+                .focused($textFieldIsFocused)
                 .padding()
                 .frame(width: 250)
             Button {
-                volumeFieldIsFocused = false
+                textFieldIsFocused = false
                 viewModel.buttonPress()
             } label: {
                 Text(viewModel.buttonText)
+                    .frame(width: 100)
                     .padding(8)
                     .foregroundColor(.black)
                     .background(Color.gray.opacity(0.5), in: RoundedRectangle(cornerRadius: 8))

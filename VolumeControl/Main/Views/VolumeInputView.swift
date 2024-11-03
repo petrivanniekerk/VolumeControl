@@ -12,6 +12,7 @@ struct VolumeInputView: View {
     // MARK: - Private Properties
     
     @FocusState private var volumeFieldIsFocused: Bool
+    @FocusState private var lineFieldIsFocused: Bool
     @StateObject private var viewModel: VolumeInputViewModel
     
     // MARK: - Initialiser
@@ -25,13 +26,16 @@ struct VolumeInputView: View {
     var body: some View {
         VStack {
             self.makeNumericVolumeInputView()
+                .focused($volumeFieldIsFocused)
             self.makeNumericLineInputView()
+                .focused($lineFieldIsFocused)
         }
         .padding([.leading, .trailing])
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 Button {
-                    volumeFieldIsFocused = false
+                    if volumeFieldIsFocused == true { volumeFieldIsFocused.toggle() }
+                    if lineFieldIsFocused == true { lineFieldIsFocused.toggle() }
                 } label: {
                     Image(systemName: "keyboard.chevron.compact.down")
                 }
