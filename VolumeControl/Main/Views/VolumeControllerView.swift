@@ -70,13 +70,17 @@ struct VolumeControllerView: View {
     // MARK: - Private Factory Methods
     
     private func makeVolumeInputView() -> VolumeInputView {
-        let volumeInputViewModel = VolumeInputViewModel { value in
-            viewModel.setVolumeOnInput(value: value)
+        let maxVolume = Int(viewModel.maximumVolume)
+        let maxLines = Int(viewModel.lineSettingMaximumValue)
+        
+        let viewModel = VolumeInputViewModel(volumeMaxValue: maxVolume,
+                                             linesMaxValue:maxLines) { value in
+            self.viewModel.setVolumeOnInput(value: value)
         } setLineHandler: { value in
-            viewModel.setVolumeOnLineInput(value: value)
+            self.viewModel.setVolumeOnLineInput(value: value)
         }
         
-        return VolumeInputView(viewModel: volumeInputViewModel)
+        return VolumeInputView(viewModel: viewModel)
     }
 }
 

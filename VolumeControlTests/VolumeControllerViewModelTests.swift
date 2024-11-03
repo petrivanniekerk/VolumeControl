@@ -30,13 +30,22 @@ final class VolumeControllerViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.getVolume(), 85)
     }
     
-    func testSetVolumeWhenInputExceedsMax() {
+    func testSetVolumeToMax() {
+        let viewModel = VolumeControllerViewModel()
+        
+        viewModel.setVolumeOnInput(value: 100)
+         
+        XCTAssertEqual(viewModel.volume, 100.0)
+        XCTAssertEqual(viewModel.getVolume(), 100)
+    }
+    
+    func testVolumeNotSetWhenVolumeInputExceedsMax() {
         let viewModel = VolumeControllerViewModel()
         
         viewModel.setVolumeOnInput(value: 101)
          
-        XCTAssertEqual(viewModel.volume, 100.0)
-        XCTAssertEqual(viewModel.getVolume(), 100)
+        XCTAssertEqual(viewModel.volume, 0.0)
+        XCTAssertEqual(viewModel.getVolume(), 0)
     }
     
     func testSetVolumeOnLineInput() {
@@ -48,13 +57,22 @@ final class VolumeControllerViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.getVolume(), 70)
     }
     
-    func testSetVolumeOnLineInputWhenInputExceedsMax() {
+    func testSetVolumeOnLineInputMax() {
+        let viewModel = VolumeControllerViewModel()
+        
+        viewModel.setVolumeOnLineInput(value: 10)
+         
+        XCTAssertEqual(viewModel.volume, 100.0)
+        XCTAssertEqual(viewModel.getVolume(), 100)
+    }
+    
+    func testVolumeNotSetWhenLineInputExceedsMax() {
         let viewModel = VolumeControllerViewModel()
         
         viewModel.setVolumeOnLineInput(value: 11)
          
-        XCTAssertEqual(viewModel.volume, 100.0)
-        XCTAssertEqual(viewModel.getVolume(), 100)
+        XCTAssertEqual(viewModel.volume, 0.0)
+        XCTAssertEqual(viewModel.getVolume(), 0)
     }
     
     func testSetVolumeWithDragGesture() {

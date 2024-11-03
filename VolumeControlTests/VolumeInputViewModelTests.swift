@@ -11,12 +11,17 @@ import XCTest
 final class VolumeInputViewModelTests: XCTestCase {
 
     func testViewModelSetup() {
-        let sut = VolumeInputViewModel(setVolumeHandler: { _ in }, setLineHandler: { _ in })
+        let sut = VolumeInputViewModel(volumeMaxValue: 100,
+                                       linesMaxValue: 10,
+                                       setVolumeHandler: { _ in },
+                                       setLineHandler: { _ in })
         
         XCTAssertEqual(sut.setLineButtonText, "Set Lines")
         XCTAssertEqual(sut.setVolumeButtonText, "Set Volume")
         XCTAssertEqual(sut.setLinePlaceHolderText, "Enter range 0 - 10")
         XCTAssertEqual(sut.setVolumePlaceHolderText, "Enter range 0 - 100")
+        XCTAssertEqual(sut.volumeErrorMessage, "Please enter value between 0 - 100")
+        XCTAssertEqual(sut.linesErrorMessage, "Please enter value between 0 - 10")
     }
     
 }

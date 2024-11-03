@@ -67,12 +67,9 @@ final class VolumeControllerViewModel: ObservableObject {
     private func manualInputHandling(inputValue: Int, maximumValue: Double, handlingStrategy: (Double) -> Void) {
         let volumeSetting = Double(inputValue)
         
-        if volumeSetting > maximumValue {
-            setToMaximum()
-        } else {
-            handlingStrategy(volumeSetting)
-        }
+        if volumeSetting > maximumValue { return }
         
+        handlingStrategy(volumeSetting)
         initialBarValue = barValueChange
     }
 }

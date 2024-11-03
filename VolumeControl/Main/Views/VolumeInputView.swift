@@ -47,7 +47,9 @@ struct VolumeInputView: View {
     
     private func makeNumericVolumeInputView() -> NumericInputView {
         let viewModel = NumericInputViewModel(placeHolderText: viewModel.setVolumePlaceHolderText,
-                                              buttonText: viewModel.setVolumeButtonText,
+                                              buttonText: viewModel.setVolumeButtonText, 
+                                              maximumValue: viewModel.volumeMaxValue,
+                                              customErrorMessage: viewModel.volumeErrorMessage,
                                               completion: viewModel.setVolumeHandler)
         return NumericInputView(viewModel: viewModel)
     }
@@ -55,6 +57,8 @@ struct VolumeInputView: View {
     private func makeNumericLineInputView() -> NumericInputView {
         let viewModel = NumericInputViewModel(placeHolderText: viewModel.setLinePlaceHolderText,
                                               buttonText: viewModel.setLineButtonText,
+                                              maximumValue: viewModel.linesMaxValue,
+                                              customErrorMessage: viewModel.linesErrorMessage,
                                               completion: viewModel.setLineHandler)
         return NumericInputView(viewModel: viewModel)
     }
@@ -63,6 +67,9 @@ struct VolumeInputView: View {
 // MARK: View Preview
 
 #Preview {
-    let viewModel = VolumeInputViewModel(setVolumeHandler: { _ in }, setLineHandler: { _ in })
+    let viewModel = VolumeInputViewModel(volumeMaxValue: 100,
+                                         linesMaxValue: 10,
+                                         setVolumeHandler: { _ in },
+                                         setLineHandler: { _ in })
     return VolumeInputView(viewModel: viewModel)
 }

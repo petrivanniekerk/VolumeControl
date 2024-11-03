@@ -44,7 +44,7 @@ struct NumericInputView: View {
         .alert("Invalid input", isPresented: $viewModel.showError, actions: {
             Button("OK", role: .cancel, action: {})
         }, message: {
-            Text("Please enter numeric values only.")
+            Text(viewModel.customErrorMessage ?? "Please enter valid value.")
         })
     }
 }
@@ -53,7 +53,8 @@ struct NumericInputView: View {
 
 #Preview {
     let viewModel = NumericInputViewModel(placeHolderText: "Placeholder",
-                                          buttonText: "Button",
+                                          buttonText: "Button", 
+                                          maximumValue: 10,
                                           completion: { _ in })
     return NumericInputView(viewModel: viewModel)
 }
