@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MediaPlayer
 
 final class VolumeControllerViewModel: ObservableObject {
 
@@ -52,6 +53,7 @@ final class VolumeControllerViewModel: ObservableObject {
     
     func dragDidEnd() {
         initialBarValue = barValueChange
+        setDeviceVolume()
     }
     
     func getVolume() -> Int {
@@ -72,5 +74,15 @@ final class VolumeControllerViewModel: ObservableObject {
         
         handlingStrategy(volumeSetting)
         initialBarValue = barValueChange
+        setDeviceVolume()
+    }
+    
+    private func setDeviceVolume() {
+        let volumeView = MPVolumeView()
+        if let view = volumeView.subviews.first as? UISlider {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
+                view.value = Float(self.volume / self.maximumVolume)
+            }
+        }
     }
 }

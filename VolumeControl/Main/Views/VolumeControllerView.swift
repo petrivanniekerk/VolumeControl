@@ -28,6 +28,7 @@ struct VolumeControllerView: View {
     var body: some View {
         // MARK: - Volume Manual Input Control
         makeVolumeInputView()
+            .padding(.bottom)
         
         // MARK: - Volume Drag Control
         ZStack(alignment: .bottom) {
@@ -48,7 +49,6 @@ struct VolumeControllerView: View {
                 }
             }
         }
-        .padding(.top)
         .frame(width: volumeControlWidth, height: viewModel.barMaximumValue)
         .gesture(
             DragGesture()
